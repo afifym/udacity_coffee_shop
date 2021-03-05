@@ -209,11 +209,11 @@ def not_found(error):
 @TODO implement error handler for AuthError
     error handler should conform to general task above 
 '''
-@app.errorhandler(401)
+@app.errorhandler(AuthError)
 def unauthorized(error):
     return jsonify({
         "success": False,
-        "error": 401,
+        "error": AuthError,
         "message": "unauthorized access"
     }), 401
 
@@ -224,8 +224,7 @@ $env:FLASK_APP="src/api.py"
 $env:FLASK_ENV="development"
 flask run
 
-https://afifym.us.auth0.com/authorize?audience=coffee&response_type=token&client_id=0OcpMMQUIUrdoXT3yD92B4jz1PsAR074&redirect_uri=http://localhost:8080/login-results
-
+https://afifym.us.auth0.com/authorize?audience=coffee&response_type=token&client_id=0OcpMMQUIUrdoXT3yD92B4jz1PsAR074&redirect_uri=http://localhost:8100/tabs/user-page
 b
 eyJhbGciOiJSUzI1NiIsInR5cCI6IkpXVCIsImtpZCI6IjV4bGRqZUpQNEd1dVRvaEs1MUMtdiJ9.eyJpc3MiOiJodHRwczovL2FmaWZ5bS51cy5hdXRoMC5jb20vIiwic3ViIjoiYXV0aDB8NjAzZmRjMWY0YjQ5NzkwMDY5MjY5M2IxIiwiYXVkIjoiY29mZmVlIiwiaWF0IjoxNjE0ODcwNTAyLCJleHAiOjE2MTQ4Nzc3MDIsImF6cCI6IjBPY3BNTVFVSVVyZG9YVDN5RDkyQjRqejFQc0FSMDc0Iiwic2NvcGUiOiIiLCJwZXJtaXNzaW9ucyI6WyJnZXQ6ZHJpbmtzLWRldGFpbCJdfQ.AHz6hof3OBNMizGrQggaN2GDm88HEdiTCfnUpF21LGy7HGEPIGUl1MA2yuF7QPJq8fTVibrbgeYmQA3dExp2APVd6-3RZMb-GpFfg18P-ffS45nAvINFDOCXgO7fNP_aQ1e4GHgRSpFaJIPncbVhHoCaBTRFU-XXZjvU6vEbiy5OUwDxS130xDI9xIA2MVJ1DXbyFgS83ixtCzh6jZhPovoa0XWiXLg7sI4MTo-gyq9BLxwei0oNkQT-fSX2u1vrWODXL5-J4DsHmhb8H2Acj_Kd_sTjyhcsE6LOYJ_Brg27Ia07TTScYaO-IJUzFu6FQ7jwnZ0auhlvptbOthVkKg
 """
